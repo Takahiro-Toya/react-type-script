@@ -3,7 +3,11 @@ $theme: #f5dd42;
 $black: #282c34;
 $white: #ffffff;
 
-* {
+// * {
+//     background-color: $theme;
+// }
+
+html {
     background-color: $theme;
 }
 
@@ -27,6 +31,7 @@ $white: #ffffff;
             justify-content: flex-start;
             list-style: none;
             padding: 0;
+            margin: 0;
             li {
                 color: $white;
                 flex-grow: 1;
@@ -41,13 +46,24 @@ $white: #ffffff;
         }
     }
 }
-
-.dropdown {
-    display: flex;
-    flex-direction: column !important;
-    li {
-        background-color: $white !important;
-        color: $black !important;
-    }
-}
   
+h5 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.submenu {
+    position: relative;
+    top: -10%;
+    left: 10%;
+    width: 80%;
+    margin: 0px;
+    padding: 0px;
+    z-index: 2;
+    background-color: $white;
+    color: $black;
+}
+
+body {
+    position: relative;
+}
