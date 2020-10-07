@@ -2,13 +2,17 @@
 $theme: #f5dd42;
 $black: #282c34;
 $white: #ffffff;
-
-// * {
-//     background-color: $theme;
-// }
+$gray: #636363;
 
 html {
     background-color: $theme;
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
 }
 
 .container {
@@ -25,6 +29,8 @@ html {
 
 .airline_header {
     nav {
+        padding: 0px 5% 0px 5%;
+        background-color: $black;
         ul{
             display: flex;
             flex-direction: row;
@@ -46,24 +52,11 @@ html {
         }
     }
 }
-  
-h5 {
-    margin: 0px;
-    padding: 0px;
-}
 
 .submenu {
     position: relative;
-    top: -10%;
-    left: 10%;
-    width: 80%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0px 5% 0px 5%;
     z-index: 2;
     background-color: $white;
-    color: $black;
-}
-
-body {
-    position: relative;
+    color: $gray;
 }

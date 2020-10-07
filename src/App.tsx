@@ -6,9 +6,9 @@ function App() {
   return (
     <div>
       <Header></Header>
-      <body>
+      <div>
         <p>BODY</p>
-      </body>
+      </div>
     </div>
   );
 }
