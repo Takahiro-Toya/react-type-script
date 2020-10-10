@@ -29,6 +29,9 @@ header {
 }
 
 .airline_header {
+    h1 {
+        margin-left: 60px;
+    }
     nav {
         padding: 0px 5% 0px 5%;
         background-color: $black;
@@ -55,8 +58,9 @@ header {
 }
 
 .submenu {
-    position: relative;
+    position: absolute;
     margin: 0px 5% 0px 5%;
+    width: 90%;
     background-color: $white;
     color: $gray;
     z-index: 2;
@@ -72,14 +76,19 @@ header {
 
 .submenu_grid {
     display: grid;
+    // flex-wrap: wrap;
     grid-template-columns: repeat(4, 1fr);
 }
 
 .submenu_grid_item {
-    margin: 10px 30px 5px 30px;
+    flex: 1;
+    margin: 10px 5% 5px 5%;
     color: $gray;
+    justify-content: flex-start;
     text-align: center;
     font-size: .9em;
+    // width: 50%;
+    flex-basis: 25%;
     a {
         color: $gray;
         text-decoration: none;
@@ -106,12 +115,68 @@ header {
     }
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
 
-article {
-    position: fixed;
-    top: 50;
-    left: 0;
-    height: 100%;
-    width: 100%;
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#flight-seach-section {
+    @extend .container;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    > * {
+        flex-grow: 1;
+        margin: 20px 40px 20px 40px;
+    }
+    * {
+        padding: 10px;
+    }
+    #search-form {
+        @extend .flex-column;
+        input {
+            border: none;
+            border-bottom: 2px solid $gray;
+            border-radius: 10px;
+            font-size: 1.2em;
+        }
+        button {
+            margin-top: 20px;
+            border-radius: 50px;
+            border: none;
+            background-color: black;
+            color: $theme;
+            font-size: 1.2em;
+            box-shadow: 0px 2px lightgray;
+        }
+    }
+    #search-image {
+        background-color: blue;
+    }
+}
+
+#topics {
+    text-align: center;
+    background-color: white;
+    padding: 40px 0px 40px 0px;
+    .topic-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+        * {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 20px;
+        }
+    }
 }
 
