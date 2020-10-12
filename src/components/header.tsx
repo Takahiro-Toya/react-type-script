@@ -123,34 +123,22 @@ const menu: Array<INavMenu> = [
 
 export function Header(props: any) {
 
-    const [submenuVisible, setSubmenuVisible] = useState(false);
-    const [menuIndex, setMenuIndex] = useState(-1);
-    const onHover = (index: number, enter: boolean) => {
-        setMenuIndex(index);   
-    }
 
     return (
         <header className="airline_header">
             <h1 className="h_pad v_pad">TT Airways</h1>
             <nav>
                 <ul 
-                    onMouseEnter={() => setSubmenuVisible(true)}
-                    onMouseLeave={() => {setSubmenuVisible(false)}}
                 className="container">
-                    <MenuItem index={0} menu={menu[0]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(0, e)}></MenuItem>
-                    <MenuItem index={1} menu={menu[1]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(1, e)}></MenuItem>
-                    <MenuItem index={2} menu={menu[2]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(2, e)}></MenuItem>
-                    <MenuItem index={3} menu={menu[3]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(3, e)}></MenuItem>
-                    <MenuItem index={4} menu={menu[4]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(4, e)}></MenuItem>
-                    <MenuItem index={5} menu={menu[5]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(5, e)}></MenuItem>
-                    <MenuItem index={6} menu={menu[6]} targetIndex={menuIndex} onHover={(e: boolean) => onHover(6, e)}></MenuItem>
+                    <MenuItem index={0} menu={menu[0]}></MenuItem>
+                    <MenuItem index={1} menu={menu[1]}></MenuItem>
+                    <MenuItem index={2} menu={menu[2]} ></MenuItem>
+                    <MenuItem index={3} menu={menu[3]} ></MenuItem>
+                    <MenuItem index={4} menu={menu[4]} ></MenuItem>
+                    <MenuItem index={5} menu={menu[5]} ></MenuItem>
+                    <MenuItem index={6} menu={menu[6]} ></MenuItem>
                 </ul>
             </nav>
-            {submenuVisible && 
-                <div className="submenu" onMouseEnter={() => setSubmenuVisible(true)} onMouseLeave={() => {setSubmenuVisible(false); setMenuIndex(-1)}}>
-                    <SubMenuInGrid menu={menu[menuIndex].sub_menu}/>
-                </div>
-            }
         </header>
     )
 }
@@ -158,12 +146,12 @@ export function Header(props: any) {
 const MenuItem = (props: any) => {
     return (
         <li
-            style={{
-                color: props.targetIndex === props.index ? "#282c34" : "#fff", 
-                backgroundColor: props.targetIndex === props.index ? "#fff" : "#282c34"}}
-            onMouseEnter={() => props.onHover(true)}
-            onMouseLeave={() => props.onHover(false)}
-        >{props.menu.title}</li>
+        >
+            {props.menu.title}
+            <div className="submenu">
+                <SubMenuInGrid menu={props.menu.sub_menu}/>
+            </div>
+        </li>
     )
 }
 

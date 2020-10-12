@@ -48,22 +48,27 @@ header {
                 text-align: center;
                 background-color: $black;
                 padding: 20px;
-                &:hover{
+                .submenu {
+                    visibility: hidden;
+                    position: absolute;
+                    top: auto;
+                    left: 0em;
+                    margin: 0px 5% 0px 5%;
+                    width: 90%;
+                    background-color: $white;
+                    color: $gray;
+                    z-index: 2;
+                }
+                &:hover {
                     background-color: $white;
                     color: $black;
+                }
+                &:hover .submenu{
+                    visibility: visible;
                 }
             }  
         }
     }
-}
-
-.submenu {
-    position: absolute;
-    margin: 0px 5% 0px 5%;
-    width: 90%;
-    background-color: $white;
-    color: $gray;
-    z-index: 2;
 }
 
 .submenu_item {
@@ -129,10 +134,9 @@ header {
     @extend .container;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     
     > * {
-        flex-grow: 1;
         margin: 20px 40px 20px 40px;
     }
     * {
@@ -157,7 +161,19 @@ header {
         }
     }
     #search-image {
-        background-color: blue;
+         img {
+             width: 100%;
+            //  z-index: 1;
+         }
+         #text {
+             color: white;
+             font-weight: bold;
+             font-size: 1.5em;
+             z-index: 2;
+             position: relative;
+             top: -4em;
+             left: 40px;
+         }
     }
 }
 
